@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { MapPin, Star, ShieldCheck, CheckCircle2, ChevronLeft, Calendar as CalendarIcon } from 'lucide-react';
-import { format, addDays } from 'date-fns';
+import { format } from 'date-fns';
 import { mockEquipment } from '../data/mockData';
 import './EquipmentDetails.css';
 
@@ -9,7 +9,7 @@ export default function EquipmentDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const equipment = mockEquipment.find(e => e.id === id) || mockEquipment[0];
-  
+
   const [rentDuration, setRentDuration] = useState<'hour' | 'day' | 'week'>('day');
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [durationCount, setDurationCount] = useState<number>(1);
@@ -19,20 +19,20 @@ export default function EquipmentDetails() {
     if (rentDuration === 'hour') rate = equipment.rates.hour || 0;
     else if (rentDuration === 'day') rate = equipment.rates.day;
     else if (rentDuration === 'week') rate = equipment.rates.week;
-    
+
     return rate * durationCount;
   };
 
   const handleBooking = () => {
     // In a real app we would pass booking state via context or redxu
-    navigate('/checkout', { 
-      state: { 
-        equipment, 
-        duration: rentDuration, 
-        count: durationCount, 
+    navigate('/checkout', {
+      state: {
+        equipment,
+        duration: rentDuration,
+        count: durationCount,
         date: selectedDate,
         total: calculateTotal()
-      } 
+      }
     });
   };
 
@@ -109,13 +109,13 @@ export default function EquipmentDetails() {
           <div className="lg:col-span-1">
             <div className="bg-card rounded-xl shadow-lg border border-primary-100 p-6 sticky top-28 booking-sidebar">
               <h2 className="text-xl font-bold mb-6 border-b border-light pb-4">Rent This Equipment</h2>
-              
+
               {/* Duration Selection */}
               <div className="mb-6">
                 <label className="block text-sm font-semibold mb-3">Rent Duration</label>
                 <div className="grid grid-cols-3 gap-2">
                   {equipment.rates.hour && (
-                    <button 
+                    <button
                       className={`pricing-btn ${rentDuration === 'hour' ? 'active' : ''}`}
                       onClick={() => setRentDuration('hour')}
                     >
@@ -123,14 +123,14 @@ export default function EquipmentDetails() {
                       <div className="font-bold">₹{equipment.rates.hour}</div>
                     </button>
                   )}
-                  <button 
+                  <button
                     className={`pricing-btn ${rentDuration === 'day' ? 'active' : ''}`}
                     onClick={() => setRentDuration('day')}
                   >
                     <div className="text-xs text-muted mb-1">Per Day</div>
                     <div className="font-bold">₹{equipment.rates.day}</div>
                   </button>
-                  <button 
+                  <button
                     className={`pricing-btn ${rentDuration === 'week' ? 'active' : ''}`}
                     onClick={() => setRentDuration('week')}
                   >
@@ -145,8 +145,8 @@ export default function EquipmentDetails() {
                 <label className="block text-sm font-semibold mb-3">Select Start Date</label>
                 <div className="flex items-center gap-3 border border-light rounded-lg p-3 focus-within:border-primary-500 focus-within:ring-1 focus-within:ring-primary-500 transition-colors">
                   <CalendarIcon className="text-primary-600" size={20} />
-                  <input 
-                    type="date" 
+                  <input
+                    type="date"
                     className="w-full text-sm outline-none text-main bg-transparent"
                     defaultValue={format(selectedDate, 'yyyy-MM-dd')}
                     min={format(new Date(), 'yyyy-MM-dd')}
@@ -157,17 +157,17 @@ export default function EquipmentDetails() {
                   <CheckCircle2 size={12} /> Available on selected dates
                 </p>
               </div>
-              
+
               {/* Quantity */}
               <div className="mb-8">
                 <label className="block text-sm font-semibold mb-3">How many {rentDuration}s?</label>
                 <div className="flex items-center gap-4">
-                  <button 
+                  <button
                     className="w-10 h-10 rounded-full border border-primary-200 flex items-center justify-center text-primary-600 hover:bg-primary-50 transition-colors"
                     onClick={() => setDurationCount(Math.max(1, durationCount - 1))}
                   >-</button>
                   <span className="text-lg font-bold w-8 text-center">{durationCount}</span>
-                  <button 
+                  <button
                     className="w-10 h-10 rounded-full border border-primary-200 flex items-center justify-center text-primary-600 hover:bg-primary-50 transition-colors"
                     onClick={() => setDurationCount(durationCount + 1)}
                   >+</button>
@@ -190,13 +190,13 @@ export default function EquipmentDetails() {
                 </div>
               </div>
 
-              <button 
+              <button
                 onClick={handleBooking}
                 className="btn btn-primary w-full h-12 text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 mt-6"
               >
                 Book Now
               </button>
-              
+
               <p className="text-center text-xs text-muted mt-4">You won't be charged yet</p>
             </div>
           </div>
