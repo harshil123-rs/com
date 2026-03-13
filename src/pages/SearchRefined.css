@@ -1,0 +1,7 @@
+.search-results-page {
+  /* Inherits bg-muted from global */
+}
+
+.equipment-card {
+  border: 1px solid var(--border-light);
+}

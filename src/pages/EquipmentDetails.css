@@ -1,0 +1,22 @@
+.pricing-btn {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  text-align: center;
+  background-color: transparent;
+  transition: all var(--transition-fast);
+}
+
+.pricing-btn:hover {
+  border-color: var(--primary-300);
+}
+
+.pricing-btn.active {
+  border-color: var(--primary-600);
+  background-color: var(--primary-50);
+  box-shadow: 0 0 0 1px var(--primary-600);
+}
+
+.booking-sidebar {
+  background: white;
+}

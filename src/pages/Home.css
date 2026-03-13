@@ -1,0 +1,114 @@
+.hero-section {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.hero-bg {
+  background-image: 
+    linear-gradient(to right, rgba(20, 83, 45, 0.8), rgba(22, 163, 74, 0.4)),
+    url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.search-widget {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  color: var(--text-main);
+}
+
+.search-tabs {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.5rem;
+}
+
+.search-tabs .tab {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.search-tabs .tab.active {
+  background-color: var(--primary-50);
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.input-wrapper {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  transition: border-color var(--transition-fast);
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px var(--primary-100);
+}
+
+.input-wrapper input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-main);
+  font-family: inherit;
+}
+
+.loc-detect-btn {
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+}
+
+.loc-detect-btn:hover {
+  background-color: var(--primary-50);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.category-card {
+  box-shadow: var(--shadow-sm);
+}
+
+.category-card:hover {
+  box-shadow: var(--shadow-lg);
+}

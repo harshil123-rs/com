@@ -1,0 +1,24 @@
+.selection-card {
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+}
+
+.selection-card:hover {
+  border-color: var(--primary-300);
+  background-color: var(--bg-muted);
+}
+
+.selection-card.active {
+  border-color: var(--primary-600);
+  background-color: var(--primary-50);
+  box-shadow: 0 0 0 1px var(--primary-600);
+}
+
+.payment-method:hover {
+  background-color: var(--bg-muted);
+}
+
+.payment-method.active {
+  border-color: var(--primary-600);
+  background-color: var(--primary-50);
+}
